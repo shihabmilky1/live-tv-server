@@ -1,13 +1,13 @@
 const express = require("express")
 const cors = require("cors")
 const bodyParser = require('body-parser')
+require('dotenv').config();
 
 const { MongoClient } = require('mongodb');
 const uri = "mongodb+srv://shihabmilky2:shihabmilky2@cluster0.4czm1.mongodb.net/live-tv?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const app = express()
-
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
@@ -31,4 +31,4 @@ client.connect(err => {
     })
 });
 
-app.listen(3001, () => console.log('Working'))
+app.listen(process.env.PORT || 3001)
