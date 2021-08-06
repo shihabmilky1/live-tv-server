@@ -29,12 +29,18 @@ client.connect(err => {
                 res.send(doc)
             })
     })
-    app.post('/channel/playing', (req, res) => {
-        tv.find({ name: req.body.name })
+    app.get('/channel/bangla', (req, res) => {
+        tv.find({ country: 'Bangladesh' })
             .toArray((err, doc) => {
                 res.send(doc)
             })
     })
+    // app.post('/channel/playing', (req, res) => {
+    //     tv.find({ name: req.body.name })
+    //         .toArray((err, doc) => {
+    //             res.send(doc)
+    //         })
+    // })
 });
 
 app.listen(process.env.PORT || 3001)
