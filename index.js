@@ -41,6 +41,12 @@ client.connect(err => {
                 res.send(doc)
             })
     })
+    app.get('/channel/movies', (req, res) => {
+        tv.find({ category: "Movies" })
+            .toArray((err, doc) => {
+                res.send(doc)
+            })
+    })
     // app.post('/channel/playing', (req, res) => {
     //     tv.find({ name: req.body.name })
     //         .toArray((err, doc) => {
