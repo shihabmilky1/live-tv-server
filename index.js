@@ -71,6 +71,12 @@ client.connect(err => {
                 res.send(doc)
             })
     })
+    app.get('/channel/sports', (req, res) => {
+        tv.find({ category: "Sports" })
+            .toArray((err, doc) => {
+                res.send(doc)
+            })
+    })
 })
 
 
