@@ -35,6 +35,12 @@ client.connect(err => {
                 res.send(doc)
             })
     })
+    app.get('/channel/india', (req, res) => {
+        tv.find({ country: 'India' })
+            .toArray((err, doc) => {
+                res.send(doc)
+            })
+    })
     // app.post('/channel/playing', (req, res) => {
     //     tv.find({ name: req.body.name })
     //         .toArray((err, doc) => {
