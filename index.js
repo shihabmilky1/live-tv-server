@@ -47,12 +47,31 @@ client.connect(err => {
                 res.send(doc)
             })
     })
-    // app.post('/channel/playing', (req, res) => {
-    //     tv.find({ name: req.body.name })
-    //         .toArray((err, doc) => {
-    //             res.send(doc)
-    //         })
-    // })
-});
+    app.get('/channel/IndianBangla', (req, res) => {
+        tv.find({ category: "Indian Bangla" })
+            .toArray((err, doc) => {
+                res.send(doc)
+            })
+    })
+    app.get('/channel/music', (req, res) => {
+        tv.find({ category: "Music" })
+            .toArray((err, doc) => {
+                res.send(doc)
+            })
+    })
+    app.get('/channel/kids', (req, res) => {
+        tv.find({ category: "Kids" })
+            .toArray((err, doc) => {
+                res.send(doc)
+            })
+    })
+    app.get('/channel/entertainment', (req, res) => {
+        tv.find({ category: "Indian Entertainment" })
+            .toArray((err, doc) => {
+                res.send(doc)
+            })
+    })
+})
+
 
 app.listen(process.env.PORT || 3001)
